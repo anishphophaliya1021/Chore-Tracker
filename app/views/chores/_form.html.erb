@@ -1,20 +1,9 @@
-<%= form_for @chore do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :child_id %><br />
-    <%= f.text_field :child_id %>
-  </p>
-  <p>
-    <%= f.label :task_id %><br />
-    <%= f.text_field :task_id %>
-  </p>
-  <p>
-    <%= f.label :due_on %><br />
-    <%= f.date_select :due_on %>
-  </p>
-  <p>
-    <%= f.label :completed %><br />
-    <%= f.check_box :completed %>
-  </p>
-  <p><%= f.submit %></p>
+ <%= semantic_form_for (@chore) do |f| %>
+<%= f.inputs do%>
+<%= f.input :child, :required => true %>
+<%= f.input :task, :required => true %>
+<%= f.input :due_on, :order => [:month, :day, :year], :start_year => 2011 %>
+<%= f.input :completed, :as => :radio, :label => "Status", :collection => [["Pending", false], ["Completed", true]] %>
+<% end %>
+<%= f.buttons %>
 <% end %>
