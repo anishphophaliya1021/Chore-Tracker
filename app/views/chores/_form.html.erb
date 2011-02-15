@@ -1,0 +1,20 @@
+<%= form_for @chore do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :child_id %><br />
+    <%= f.text_field :child_id %>
+  </p>
+  <p>
+    <%= f.label :task_id %><br />
+    <%= f.text_field :task_id %>
+  </p>
+  <p>
+    <%= f.label :due_on %><br />
+    <%= f.date_select :due_on %>
+  </p>
+  <p>
+    <%= f.label :completed %><br />
+    <%= f.check_box :completed %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
